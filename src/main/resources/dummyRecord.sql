@@ -1,0 +1,15 @@
+-- USE testdb;
+-- CREATE TABLE RatingHystory(
+--     id INT(64) NOT NULL AUTO_INCREMENT,
+--                               "courseId": 1,
+--                               "creationTime": "2002-05-18",
+--                               "status": 1,
+--                               "userId": 2,
+--                               "rating": 10.5,
+--                               "note": "Muy buen curso"
+--
+--
+--
+--
+--
+-- );

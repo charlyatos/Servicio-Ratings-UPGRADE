@@ -9,8 +9,8 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ResultCourseServiceImpl extends GenericServiceImpl<ResultCourses,Long> {
-//    @Autowired
-//    protected ResultCoursesRepository resultCoursesRepository;
+    @Autowired
+    private ResultCoursesRepository resultCoursesRepository;
 
     public ResultCourseServiceImpl(GenericRepository<ResultCourses, Long> genericRepository) {
         super(genericRepository);

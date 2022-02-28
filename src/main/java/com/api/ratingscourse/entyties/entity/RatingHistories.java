@@ -15,8 +15,30 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @Table(name = "RatingHistory")
 public class RatingHistories extends SuperClass {
+    @Column(name = "UserID")
+    private Long userId;
+    /*
+
+    {
+        UserId: 100,
+        rating: ,
+        note: "dhnuadjudaudna"
+    }
+
+    {
+        userId{
+            name: Alan,
+            latname: "Mejia"
+        }
+        rating: 4,
+        note: "dawdadad"
+    }
+
+
+     */
+
     @Column(name = "Rating")
-    private Integer rating;
+    private Float rating;
 
     @Column(name = "Note")
     private String note;

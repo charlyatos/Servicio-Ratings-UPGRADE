@@ -10,10 +10,10 @@ import java.util.concurrent.CompletableFuture;
 
 public interface IGenericController<E extends SuperClass,I extends Serializable> {
     CompletableFuture<ResponseEntity> getAll();
-    CompletableFuture<ResponseEntity> getOne(@PathVariable I id);
+//    CompletableFuture<ResponseEntity> getOne(@PathVariable I id);
     CompletableFuture<ResponseEntity> save(@RequestBody E entityModel);
-    CompletableFuture<ResponseEntity> update(@RequestBody E entityModel, @PathVariable I id);
-    CompletableFuture<ResponseEntity> delete(@PathVariable I id);
+//    CompletableFuture<ResponseEntity> update(@RequestBody E entityModel, @PathVariable I id);
+//    CompletableFuture<ResponseEntity> delete(@PathVariable I id);
 
 
 }

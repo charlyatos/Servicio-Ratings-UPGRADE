@@ -5,6 +5,7 @@ import com.api.ratingscourse.repositoy.GenericRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ResultCoursesRepository extends GenericRepository<ResultCourses,Long> {
+public interface ResultCoursesRepository
+        extends GenericRepository<ResultCourses,Long> {
 
 }
