@@ -28,6 +28,7 @@ public class RatingHistoryServiceImpl extends GenericServiceImpl<RatingHistories
 
         Optional<RatingHistories> checkModel = Optional.ofNullable(ratingHistoryRepository.searchByUserId(entityModel.getUserId(), entityModel.getCourseId()));
 
+//                Optional<E> checkModel = genericRepository.findById((I) entityModel.getId());
         if(checkModel.isPresent()){
             return CompletableFuture.completedFuture(entityModel);
         }else {
