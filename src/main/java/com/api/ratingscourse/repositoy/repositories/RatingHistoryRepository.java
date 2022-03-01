@@ -12,7 +12,7 @@ import static org.hibernate.loader.Loader.SELECT;
 public interface RatingHistoryRepository
         extends GenericRepository<RatingHistories,Long> {
 
-    @Query(value = "SELECT userId, courseId FROM RatingHistory WHERE userId= ?1 AND courseId= ?2", nativeQuery = true)
+    @Query(value = "SELECT * FROM rating_history WHERE userid= ?1 AND idcourse= ?2", nativeQuery = true)
     RatingHistories searchByUserId(Long userId,Long courseId);
 
 }
