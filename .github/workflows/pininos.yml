@@ -24,6 +24,7 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+      - uses: gradle/gradle-build-action@v2.1.3
       - uses: actions/setup-java@v2
         with:
           java-version: 8.0.322+6
@@ -42,5 +43,5 @@ jobs:
 
       - name: Test and buid
         run: |
-          ./gradlew build
-          ./gradlew compileTestJava
+          gradlew build
+          gradlew compileTestJava
