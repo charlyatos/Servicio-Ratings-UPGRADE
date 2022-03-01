@@ -43,5 +43,5 @@ jobs:
 
       - name: Test and buid
         run: |
-          gradlew build
-          gradlew compileTestJava
+          gradle build
+          gradle compileTestJava
