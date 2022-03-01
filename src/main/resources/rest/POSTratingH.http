@@ -1,0 +1,11 @@
+POST http://localhost:8080/api/v1/ratinghistories
+Content-Type: application/json
+
+{
+  "rating": 4.5,
+  "note": "doble like",
+  "userId": 100,
+  "courseId": 1
+}
+
+###
