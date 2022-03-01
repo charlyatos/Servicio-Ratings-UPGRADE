@@ -49,6 +49,12 @@ jobs:
           gradle build
           gradle compileTestJava
           
+      - name: SonarCloud Scan
+        uses: sonarsource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITACTIONS_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          
   cd:
       runs-on: ubuntu-latest
       needs: ci
@@ -61,10 +67,10 @@ jobs:
           run: docker build -t back .
         - name: Tags
           run: |
-            docker tag back ${{ secrets.DOCKER_USER }}/back:${{ github.sha }}
-            docker tag back ${{ secrets.DOCKER_USER }}/back:latest
+            docker tag back ${{ secrets.DOCKER_USER }}/ratingUPGRADE:${{ github.sha }}
+            docker tag back ${{ secrets.DOCKER_USER }}/ratingUPGRADE:latest
         - name: Push
           run: |
-            docker push ${{ secrets.DOCKER_USER }}/back:${{ github.sha }}
-            docker push ${{ secrets.DOCKER_USER }}/back:latest
+            docker push ${{ secrets.DOCKER_USER }}/ratingUPGRADE:${{ github.sha }}
+            docker push ${{ secrets.DOCKER_USER }}/ratingUPGRADE:latest
     
