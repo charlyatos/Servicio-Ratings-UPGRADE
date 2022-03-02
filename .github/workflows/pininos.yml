@@ -45,9 +45,10 @@ jobs:
           echo BUILD
           echo TEST
 
-      - name: Test and buid
+      - name:  Buid - Test - JacocoTestReport
         run: |
           gradle build
+          gradle test
           gradle jacocoTestReport
           
       - name: SonarCloud Scan
