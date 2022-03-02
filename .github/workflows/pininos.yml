@@ -47,7 +47,7 @@ jobs:
       - name: Test and buid
         run: |
           gradle build
-          gradle compileTestJava
+          gradle jacocoTestReport
           
       - name: SonarCloud Scan
         run:
