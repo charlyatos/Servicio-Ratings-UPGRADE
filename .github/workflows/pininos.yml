@@ -68,10 +68,10 @@ jobs:
           run: docker build -t back .
         - name: Tags
           run: |
-            docker tag back ${{ secrets.DOCKER_USER }}/ratingUPGRADE:${{ github.sha }}
-            docker tag back ${{ secrets.DOCKER_USER }}/ratingUPGRADE:latest
+            docker tag back ${{ secrets.DOCKER_USER }}/ratingupgrade:${{ github.sha }}
+            docker tag back ${{ secrets.DOCKER_USER }}/ratingupgrade:latest
         - name: Push
           run: |
-            docker push ${{ secrets.DOCKER_USER }}/ratingUPGRADE:${{ github.sha }}
-            docker push ${{ secrets.DOCKER_USER }}/ratingUPGRADE:latest
+            docker push ${{ secrets.DOCKER_USER }}/ratingupgrade:${{ github.sha }}
+            docker push ${{ secrets.DOCKER_USER }}/ratingupgrade:latest
     
