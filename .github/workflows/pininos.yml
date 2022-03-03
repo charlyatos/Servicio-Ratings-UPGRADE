@@ -51,9 +51,9 @@ jobs:
           gradle test
           
       - name: SonarCloud Scan
-        run:
+        run: |
           gradle sonarqube
-          
+          gradle jacocoTestReport
   cd:
       runs-on: ubuntu-latest
       needs: ci
