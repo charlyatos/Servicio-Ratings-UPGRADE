@@ -1,6 +1,7 @@
 package com.api.ratingscourse.serviceimpl;
 
 import com.api.ratingscourse.entyties.SuperClass;
+import com.api.ratingscourse.exceptions.exceptionclasses.ResourceNotFoundException;
 import com.api.ratingscourse.repositoy.GenericRepository;
 import com.api.ratingscourse.service.GenericService;
 import org.springframework.scheduling.annotation.Async;
@@ -21,29 +22,27 @@ public abstract class GenericServiceImpl<E extends SuperClass,I extends Serializ
 
     @Async("asyncExecutor")
     @Override
-    @Transactional/*Wont work without transactional*/
-    public CompletableFuture<E> save(E entityModel) {// 1 2
-        return CompletableFuture.completedFuture(null);
+    @Transactional
+    public CompletableFuture<List<E>> getAll() {
+        return CompletableFuture.completedFuture(genericRepository.findAll());
     }
 
     @Async("asyncExecutor")
     @Override
-    public CompletableFuture<List<E>> getAll() {
-        return CompletableFuture.completedFuture(genericRepository.findAll());
+    @Transactional
+    public CompletableFuture<E> getById(I id) {
+        Optional<E> foundRecord = genericRepository.findById(id);
+        return CompletableFuture.completedFuture(foundRecord.orElseThrow(()->new ResourceNotFoundException("Not found with id: " + id)));
     }
-//
-//    @Override
-//    public CompletableFuture<E> getById(I id) {
-//        return null;
-//    }
-//
-//    @Override
-//    public CompletableFuture<E> update(E entityModel, I id) {
-//        return null;
-//    }
-//
-//    @Override
-//    public CompletableFuture<E> delete(I id) {
-//        return null;
-//    }
+
+    @Async("asyncExecutor")
+    @Override
+    @Transactional
+    public CompletableFuture<E> delete(I id) {
+        Optional<E> checkIfExists = genericRepository.findById(id);
+        if(checkIfExists.isPresent()){
+            checkIfExists.get().setStatus((byte)0);
+        }
+        return CompletableFuture.completedFuture(genericRepository.save(checkIfExists.orElseThrow(()->new ResourceNotFoundException("Content not available with id: " + id))));
+    }
 }

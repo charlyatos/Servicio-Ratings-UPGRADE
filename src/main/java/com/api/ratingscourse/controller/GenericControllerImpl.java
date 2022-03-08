@@ -4,14 +4,11 @@ import com.api.ratingscourse.entyties.SuperClass;
 import com.api.ratingscourse.service.GenericService;
 import com.api.ratingscourse.serviceimpl.GenericServiceImpl;
 import com.sun.jndi.toolkit.url.Uri;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.http.HttpStatus;
 
 import java.io.Serializable;
 import java.net.URI;
@@ -29,24 +26,17 @@ public abstract class GenericControllerImpl<E extends SuperClass,S extends Gener
         return service.getAll().thenApply(ResponseEntity::ok);
     }
 //
-//    @Override
-//    public CompletableFuture<ResponseEntity> getOne(Long id) {
-//        return null;
-//    }
-
     @Override
-    @PostMapping("")
-    public CompletableFuture<ResponseEntity> save(@RequestBody E entityModel){
-//        return CompletableFuture.completedFuture(new ResponseEntity(HttpStatus.CREATED));
-        return service.save(entityModel).thenApply(ResponseEntity::ok);
+    @GetMapping("/{id}")
+    public CompletableFuture<E> getOne(Long id) {
+        return service.getById(id);
     }
 
-//    @Override
-//    public CompletableFuture<ResponseEntity> update(E entityModel, Long id) {
-//        return null;
-//    }
-//    @Override
-//    public CompletableFuture<ResponseEntity> delete(Long id) {
-//        return null;
-//    }
+
+
+    @Override
+    @DeleteMapping("/{id}")
+    public CompletableFuture<ResponseEntity> delete(@PathVariable Long id) {
+        return CompletableFuture.completedFuture(ResponseEntity.status(HttpStatus.OK).body(service.delete(id).join()));
+    }
 }
