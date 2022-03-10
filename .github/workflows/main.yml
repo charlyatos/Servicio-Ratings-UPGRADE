@@ -38,15 +38,16 @@ jobs:
       - name:  Buid
         run: |
           gradle build
+          gradle jar
       
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: |
           ls -l
           echo "---------------"
-          ls -l /home/runner/work/Servicio-Ratings-UPGRADE/Servicio-Ratings-UPGRADE
+          ls -l /home/runner/work/Servicio-Ratings-UPGRADE/Servicio-Ratings-UPGRADE/build/libs
           echo "---------------"
-          ls -l /home/runner/work/Servicio-Ratings-UPGRADE/
+          ls -l /home/runner/work/Servicio-Ratings-UPGRADE/build/libs
           echo "listado"
         
 
