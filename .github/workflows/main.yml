@@ -23,7 +23,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      
       - uses: actions/checkout@v2
         with:
           ref: alan-dev
@@ -45,9 +45,9 @@ jobs:
         run: |
           ls -l
           echo "---------------"
-          ls -l /home/runner/work/Servicio-Ratings-UPGRADE/Servicio-Ratings-UPGRADE/build/libs
+          ls -l /home/runner/work/Servicio-Ratings-UPGRADE/Servicio-Ratings-UPGRADE/build/libs/ratings-course-0.0.1-SNAPSHOT.jar
           echo "---------------"
-          ls -l /home/runner/work/Servicio-Ratings-UPGRADE/build/libs
+          ls -l /home/runner/work/Servicio-Ratings-UPGRADE/
           echo "listado"
         
 
