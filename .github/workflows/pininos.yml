@@ -72,10 +72,10 @@ jobs:
             java-version: 11
             distribution: 'adopt'
             
-        - name:  Buid 
-            run:|
-              gradle build
-              ls -l build/libs 
+        - name: Build 
+          run: |
+            gradle build
+            ls -l build/libs 
             
         - name: Docker login
           run: docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }}
