@@ -49,6 +49,7 @@ jobs:
         run: |
           gradle build
           gradle test
+          gradle jar
           
       - name: SonarCloud Scan
         run: |
