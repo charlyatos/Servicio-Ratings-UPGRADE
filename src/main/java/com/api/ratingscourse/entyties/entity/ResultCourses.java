@@ -1,16 +1,15 @@
 package com.api.ratingscourse.entyties.entity;
 
 import com.api.ratingscourse.entyties.SuperClass;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "ResultCourse")

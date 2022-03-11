@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.resultcourses.grpc";
+
+service ResultCoursesGRPC{
+      rpc getAverageRatingPerCourse(CourseId) returns(ResultCourse);
+}
+
+message CourseId{
+  int64 courseId = 1;
+}
+
+message ResultCourse{
+  float averageRating = 1;
+  int64 courseId = 2;
+}

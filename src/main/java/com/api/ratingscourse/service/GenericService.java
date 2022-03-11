@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 public interface GenericService<E extends SuperClass, I extends Serializable> {
-    CompletableFuture<List<E>> getAll();
-    CompletableFuture<E> getById(I id);
+    CompletableFuture<List<Object>> getAll();
+    CompletableFuture<Object> getById(I id);
     CompletableFuture<E> delete(I id);
 }
